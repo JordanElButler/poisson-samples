@@ -1,0 +1,42 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+main p {
+ width: 400px; 
+}
+.demo {
+  padding: 0;
+  margin: 0;
+  border: solid black 2px;
+}
+.divvy {
+  pointer-events: none;
+  position: absolute;
+  background-color: #ffffff;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+.divvy.vissy {
+  opacity: 1;
+}
+
+button {
+  width: 120px;
+}
