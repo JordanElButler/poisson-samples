@@ -2,9 +2,9 @@ import React from 'react';
 import { Point3, createPoisson, PoissonArgs, Poisson } from './poissonCube';
 import CanvasView from './CanvasView';
 import useInterval from './useInterval';
-import './App.css';
-import * as THREE from 'three';
 
+import * as THREE from 'three';
+import styles from './App.module.css';
 export default function ColorView () {
 
   const width = 400;
@@ -137,7 +137,7 @@ export default function ColorView () {
       } as PoissonArgs ) )
   };
   return (
-    <div className={ 'demo' }>
+    <div className={ styles.demo }>
       <button onClick={ () => setArrows( !arrows ) }>{ arrows ? 'Show arrows' : 'No arrows' }</button>
       <div>
         <input type={ 'range' } id={ 'r-value' } value={ r } min={ 40 } max={ 80 } onChange={ onChange } />

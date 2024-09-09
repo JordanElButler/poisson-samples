@@ -1,8 +1,9 @@
 import React from 'react';
 import { PP, Point, createPoisson, Poisson, PoissonArgs } from './poisson';
-import './App.css';
+
 import CanvasView from './CanvasView';
 import useInterval from './useInterval';
+import styles from './App.module.css';
 
 export default function GridView () {
 
@@ -152,15 +153,17 @@ export default function GridView () {
         ymax: height,
       } as PoissonArgs ) )
   };
+  
+  const divvyClass = `${styles.divvy} ${pv && styles.vissy}`;
   return (
-    <div className={'demo'} onPointerDown={onPointerMove} onPointerMove={ onPointerMove }>
+    <div className={styles.demo} onPointerDown={onPointerMove} onPointerMove={ onPointerMove }>
       <button onClick={ () => setArrows( !arrows ) }>{ arrows ? 'Show arrows' : 'no arrows' }</button>
       <button onClick={ () => setShowGrid( !showGrid ) }>{showGrid ? 'Show grid' : 'no grid' }</button>
       <div>
         <input id={'r-value'} type={'range'} value={r} min={20} max={50} onChange={onChange} />
           <label htmlFor={'r-value'}>Distance</label>
           </div>
-      <div style={ pstyle } className={ `divvy ${ pv && 'vissy' }` }></div>
+      <div style={ pstyle } className={ divvyClass }></div>
       <CanvasView onPointerEnter={ onPointerEnter } onPointerLeave={ onPointerLeave } render={ myRenderer } width={ width } height={ height } />
     </div>
   )
